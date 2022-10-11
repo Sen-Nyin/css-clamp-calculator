@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <script src="scripts.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="heading--main">Clamp Calculator</h1>
+    </header>
+    <main class="main">
+      <section>
+        <article>
+          <form data-form action="" class="data-form">
+            <label for="min-size">Minimum Size</label>
+            <input id="min-size" type="number" data-min-size />
+            <label for="max-size">Maximum Size</label>
+            <input type="number" id="max-size" data-max-size />
+            <label for="min-viewport">Minimum Viewport Width</label>
+            <input id="min-viewport" type="number" data-min-vp-size />
+            <label for="max-viewport">Maximum Viewport Size</label>
+            <input type="number" id="max-viewport" data-max-vp-size />
+            <button type="submit" data-btn-calculate>Calculate!</button>
+          </form>
+          <div class="result">Result</div>
+        </article>
+        <aside class="information">
+          <p>Some text</p>
+        </aside>
+      </section>
+    </main>
+    <footer class="footer"><p class="copyright">&copy; Leon Lonsdale 2022</p></footer>
+  </body>
+</html>

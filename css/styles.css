@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+*:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a,
+button {
+  cursor: revert;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input,
+textarea {
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+textarea {
+  white-space: revert;
+}
+
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+::placeholder {
+  color: unset;
+}
+
+:where([hidden]) {
+  display: none;
+}
+
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  line-break: after-white-space;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+:root {
+  font-size: 62.5%;
+  --fnt-fam-default: "Ubuntu", sans-serif;
+  --fnt-sz--default: 1.6rem;
+  --fnt-sz--main-heading: 3rem;
+  --fnt-sz--copyright: 1.3rem;
+  --body-bg--default: var(--clr-blue--light);
+  --clr-blue--light: hsl(204deg, 94%, 94%);
+}
+
+body {
+  font-family: var(--fnt-fam-default);
+  font-size: var(--fnt-sz--default);
+  background: var(--body-bg--default);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+}
+
+header,
+footer {
+  padding-block: 4rem;
+  background: hsl(201deg, 96%, 32%);
+  color: hsl(0deg, 0%, 98%);
+}
+
+main {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  padding-block: 3rem;
+}
+
+section {
+  display: grid;
+  gap: 4rem;
+  width: min(85vw, 111rem);
+  padding-inline: 1rem;
+}
+
+.heading--main {
+  font-size: var(--fnt-sz--main-heading);
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+
+.data-form {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+}
+.data-form input {
+  border: 1px solid hsl(0deg, 0%, 64%);
+  border-radius: 0.4rem;
+  padding: 0.75rem;
+}
+.data-form button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-block: 1rem;
+  background: hsl(160deg, 84%, 39%);
+  border-radius: 0.4rem;
+  color: hsl(0deg, 0%, 98%);
+  text-transform: uppercase;
+  font-weight: 300;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+}
+.data-form button:hover {
+  background: hsl(163deg, 94%, 24%);
+}
+
+.information {
+  padding: 2rem;
+  background: hsl(201deg, 94%, 86%);
+  border-radius: 0.4rem;
+}
+
+.copyright {
+  font-size: var(--fnt-sz--copyright);
+  letter-spacing: 0.075rem;
+  text-align: center;
+}/*# sourceMappingURL=styles.css.map */
