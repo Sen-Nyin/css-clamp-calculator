@@ -57,6 +57,7 @@ const handleReset = (e) => {
   e.preventDefault();
   const form = findEle('[data-form]');
   form.reset();
+  elements.result.textContent = '';
 };
 
 elements.calculate.addEventListener('click', handleCalculate);
