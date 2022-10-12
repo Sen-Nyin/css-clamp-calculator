@@ -74,7 +74,7 @@ meter {
   font-size: 62.5%;
   --fnt-fam-default: "Ubuntu", sans-serif;
   --fnt-sz--default: 1.6rem;
-  --fnt-sz--main-heading: 3rem;
+  --fnt-sz--main-heading: clamp(3rem, 2.090909090909091rem + 2.4242424242424243vw, 5rem);
   --fnt-sz--copyright: 1.3rem;
   --body-bg--default: var(--clr-blue--light);
   --clr-blue--light: hsl(196deg, 64%, 24%);
@@ -135,10 +135,15 @@ section {
 .data-form input::placeholder {
   color: hsl(187deg, 92%, 69%);
 }
+.data-form__buttons {
+  display: flex;
+  gap: 2rem;
+}
 
 .btn {
   cursor: pointer;
   transition: 200ms ease-in-out;
+  height: 100%;
 }
 .btn--calculate {
   display: block;
@@ -163,6 +168,14 @@ section {
 .btn--copy:hover {
   background: hsl(186deg, 94%, 82%);
   color: hsl(240deg, 5%, 26%);
+}
+.btn--reset {
+  padding-inline: 1.5rem;
+  border-radius: 0.4rem;
+  background: hsl(351deg, 95%, 71%);
+}
+.btn--reset:hover {
+  background: hsl(345deg, 83%, 41%);
 }
 
 .information {
@@ -202,7 +215,13 @@ section {
   border-radius: 0.4rem;
 }
 
-.icon-clipboard {
+.icon--clipboard {
   width: 2.5rem;
   aspect-ratio: 1;
+  stroke-width: 1.8;
+}
+.icon--reload {
+  width: 2rem;
+  aspect-ratio: 1;
+  stroke-width: 1.8;
 }/*# sourceMappingURL=styles.css.map */

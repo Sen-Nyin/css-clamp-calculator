@@ -17,26 +17,46 @@
       <section>
         <article data-data-wrap class="data-wrap">
           <form data-form action="" class="data-form">
-            <input id="min-size" type="number" data-min-size placeholder="Minimum Size" />
-            <input type="number" id="max-size" data-max-size placeholder="Maximum Size" />
+            <input data-rem-value type="number" id="rem-value" placeholder="Rem value (px)" />
+            <input
+              data-size-min
+              id="min-size"
+              type="number"
+              data-min-size
+              placeholder="Minimum Size (rem)"
+            />
+            <input
+              data-size-max
+              type="number"
+              id="max-size"
+              data-max-size
+              placeholder="Maximum Size (rem)"
+            />
             <input
               id="min-viewport"
               type="number"
-              data-min-vp-size
-              placeholder="Minimum Viewport Width"
+              data-vp-min
+              placeholder="Minimum Viewport Width (px)"
             />
             <input
               type="number"
               id="max-viewport"
-              data-max-vp-size
-              placeholder="Maximum Viewport Size"
+              data-vp-max
+              placeholder="Maximum Viewport Size (px)"
             />
-            <button type="submit" data-btn-calculate class="btn btn--calculate">Calculate!</button>
+            <div class="data-form__buttons">
+              <button type="submit" data-btn-calculate class="btn btn--calculate">
+                Calculate!
+              </button>
+              <button data-btn-reset class="btn btn--reset">
+                <svg class="icon--reload"><use href="./assets/sprite.svg#undo"></use></svg>
+              </button>
+            </div>
           </form>
-          <div data-result class="result">
-            <span class="result__output"></span>
-            <button aria-label="copy result" class="btn btn--copy">
-              <svg class="icon-clipboard"><use href="./assets/sprite.svg#clipboard"></use></svg>
+          <div class="result">
+            <span data-result class="result__output"></span>
+            <button aria-label="copy result" data-copy class="btn btn--copy">
+              <svg class="icon--clipboard"><use href="./assets/sprite.svg#clipboard"></use></svg>
             </button>
           </div>
         </article>
@@ -50,6 +70,10 @@
           <p>
             This calculator takes your min and max sizes and then calculates the optimal rate of
             scaling.
+          </p>
+          <p>
+            Remember to add your base text size in pixels. By default this is 16px, but if you have
+            set your font-size to 62.5%, enter 10.
           </p>
         </aside>
       </section>

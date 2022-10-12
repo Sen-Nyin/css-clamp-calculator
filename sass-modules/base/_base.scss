@@ -8,7 +8,7 @@
   // ##### Fonts
   --fnt-fam-default: 'Ubuntu', sans-serif;
   --fnt-sz--default: 1.6rem;
-  --fnt-sz--main-heading: 3rem;
+  --fnt-sz--main-heading: clamp(3rem, 2.090909090909091rem + 2.4242424242424243vw, 5rem);
   --fnt-sz--copyright: 1.3rem;
 
   // ##### Colour
@@ -73,11 +73,17 @@ section {
       color: #{a.$cyan-300};
     }
   }
+
+  &__buttons {
+    display: flex;
+    gap: 2rem;
+  }
 }
 
 .btn {
   cursor: pointer;
   transition: 200ms ease-in-out;
+  height: 100%;
 
   &--calculate {
     display: block;
@@ -103,6 +109,16 @@ section {
     &:hover {
       background: #{a.$cyan-200};
       color: #{a.$zinc-700};
+    }
+  }
+
+  &--reset {
+    padding-inline: 1.5rem;
+    border-radius: 0.4rem;
+    background: #{a.$rose-400};
+
+    &:hover {
+      background: #{a.$rose-700};
     }
   }
 }
@@ -146,7 +162,15 @@ section {
   border-radius: 0.4rem;
 }
 
-.icon-clipboard {
-  width: 2.5rem;
-  aspect-ratio: 1;
+.icon {
+  &--clipboard {
+    width: 2.5rem;
+    aspect-ratio: 1;
+    stroke-width: 1.8;
+  }
+  &--reload {
+    width: 2rem;
+    aspect-ratio: 1;
+    stroke-width: 1.8;
+  }
 }
