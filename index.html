@@ -17,8 +17,15 @@
       <section>
         <article data-data-wrap class="data-wrap">
           <form data-form action="" class="data-form">
-            <input data-rem-value type="number" id="rem-value" placeholder="Base text size (px)" />
             <input
+              aria-label="Input base text size in pixels"
+              data-rem-value
+              type="number"
+              id="rem-value"
+              placeholder="Base text size (px)"
+            />
+            <input
+              aria-label="input minimum element size in rem"
               data-size-min
               id="min-size"
               type="number"
@@ -27,6 +34,7 @@
               required
             />
             <input
+              aria-label="input maximum element size in rem"
               data-size-max
               type="number"
               id="max-size"
@@ -35,6 +43,7 @@
               required
             />
             <input
+              aria-label="input minimum viewport width in pixels"
               id="min-viewport"
               type="number"
               data-vp-min
@@ -42,6 +51,7 @@
               required
             />
             <input
+              aria-label="input maximum viewport width in pixels"
               type="number"
               id="max-viewport"
               data-vp-max
@@ -49,16 +59,21 @@
               required
             />
             <div class="data-form__buttons">
-              <button type="submit" data-btn-calculate class="btn btn--calculate">
+              <button
+                aria-label="calculate result"
+                type="submit"
+                data-btn-calculate
+                class="btn btn--calculate"
+              >
                 Calculate!
               </button>
-              <button data-btn-reset class="btn btn--reset">
+              <button aria-label="reset form" data-btn-reset class="btn btn--reset">
                 <svg class="icon--reload"><use href="./assets/sprite.svg#undo"></use></svg>
               </button>
             </div>
           </form>
           <div class="result">
-            <span data-result class="result__output"></span>
+            <span aria-label="results" data-result class="result__output"></span>
             <button aria-label="copy result" data-copy class="btn btn--copy">
               <svg class="icon--clipboard"><use href="./assets/sprite.svg#clipboard"></use></svg>
             </button>
