@@ -135,6 +135,10 @@ section {
 .data-form input::placeholder {
   color: hsl(187deg, 92%, 69%);
 }
+.data-form:invalid button[data-btn-calculate] {
+  pointer-events: none;
+  opacity: 0.3;
+}
 .data-form__buttons {
   display: flex;
   gap: 2rem;

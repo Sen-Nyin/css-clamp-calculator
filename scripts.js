@@ -1,9 +1,10 @@
 'use: strict';
 
 const findEle = (selector) => document.querySelector(selector);
+const findEles = (selector) => document.querySelectorAll(selector);
 
 const calcVP = (value) => {
-  const rem = findEle('[data-rem-value]').value;
+  const rem = findEle('[data-rem-value]').value || 16;
   const result = value / rem;
   console.log(result);
   return result;
@@ -40,7 +41,6 @@ const handleCalculate = (e) => {
   const minimum = +findEle('[data-size-min]').value;
   const maximumVP = calcVP(+findEle('[data-vp-max]').value);
   const minimumVP = calcVP(+findEle('[data-vp-min]').value);
-  console.log(maximumVP);
   const slope = calcSlope(minimum, maximum, minimumVP, maximumVP);
   const yIntersect = calcYIntersect(minimumVP, slope, minimum);
   displayResult(minimum, yIntersect, slope, maximum);

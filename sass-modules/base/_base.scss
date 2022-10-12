@@ -74,6 +74,11 @@ section {
     }
   }
 
+  &:invalid button[data-btn-calculate] {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
   &__buttons {
     display: flex;
     gap: 2rem;
