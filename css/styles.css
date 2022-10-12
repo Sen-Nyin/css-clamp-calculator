@@ -77,12 +77,13 @@ meter {
   --fnt-sz--main-heading: 3rem;
   --fnt-sz--copyright: 1.3rem;
   --body-bg--default: var(--clr-blue--light);
-  --clr-blue--light: hsl(204deg, 94%, 94%);
+  --clr-blue--light: hsl(196deg, 64%, 24%);
 }
 
 body {
   font-family: var(--fnt-fam-default);
   font-size: var(--fnt-sz--default);
+  color: hsl(0deg, 0%, 98%);
   background: var(--body-bg--default);
   min-height: 100vh;
   display: grid;
@@ -92,8 +93,6 @@ body {
 header,
 footer {
   padding-block: 4rem;
-  background: hsl(201deg, 96%, 32%);
-  color: hsl(0deg, 0%, 98%);
 }
 
 main {
@@ -109,6 +108,11 @@ section {
   width: min(85vw, 111rem);
   padding-inline: 1rem;
 }
+@media only screen and (min-width: 64em) {
+  section {
+    grid-template-columns: 2fr 1fr;
+  }
+}
 
 .heading--main {
   font-size: var(--fnt-sz--main-heading);
@@ -119,15 +123,24 @@ section {
 
 .data-form {
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   width: 100%;
 }
 .data-form input {
-  border: 1px solid hsl(0deg, 0%, 64%);
+  border: 2px solid hsl(192deg, 91%, 36%);
   border-radius: 0.4rem;
-  padding: 0.75rem;
+  padding: 1rem;
+  background: hsl(192deg, 91%, 36%);
 }
-.data-form button {
+.data-form input::placeholder {
+  color: hsl(187deg, 92%, 69%);
+}
+
+.btn {
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+}
+.btn--calculate {
   display: block;
   width: 100%;
   text-align: center;
@@ -137,21 +150,59 @@ section {
   color: hsl(0deg, 0%, 98%);
   text-transform: uppercase;
   font-weight: 300;
-  cursor: pointer;
-  transition: 200ms ease-in-out;
 }
-.data-form button:hover {
+.btn--calculate:hover {
   background: hsl(163deg, 94%, 24%);
+}
+.btn--copy {
+  display: grid;
+  place-items: center;
+  padding: 0.5rem;
+  border-radius: 999rem;
+}
+.btn--copy:hover {
+  background: hsl(186deg, 94%, 82%);
+  color: hsl(240deg, 5%, 26%);
 }
 
 .information {
+  display: grid;
+  gap: 2rem;
   padding: 2rem;
   background: hsl(201deg, 94%, 86%);
   border-radius: 0.4rem;
+  color: hsl(240deg, 5%, 26%);
+}
+.information h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+}
+.information p {
+  line-height: 1.5;
 }
 
 .copyright {
   font-size: var(--fnt-sz--copyright);
   letter-spacing: 0.075rem;
   text-align: center;
+}
+
+.data-wrap {
+  display: grid;
+  gap: 3rem;
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: hsl(192deg, 91%, 36%);
+  padding: 1rem;
+  border-radius: 0.4rem;
+}
+
+.icon-clipboard {
+  width: 2.5rem;
+  aspect-ratio: 1;
 }/*# sourceMappingURL=styles.css.map */

@@ -13,12 +13,13 @@
 
   // ##### Colour
   --body-bg--default: var(--clr-blue--light);
-  --clr-blue--light: #{a.$sky-100};
+  --clr-blue--light: #{a.$cyan-900};
 }
 
 body {
   font-family: var(--fnt-fam-default);
   font-size: var(--fnt-sz--default);
+  color: #{a.$neutral-50};
   background: var(--body-bg--default);
   min-height: 100vh;
   display: grid;
@@ -28,8 +29,6 @@ body {
 header,
 footer {
   padding-block: 4rem;
-  background: #{a.$sky-700};
-  color: #{a.$neutral-50};
 }
 
 main {
@@ -44,6 +43,10 @@ section {
   gap: 4rem;
   width: min(85vw, 111rem);
   padding-inline: 1rem;
+
+  @include a.breakpoint(lg, min) {
+    grid-template-columns: 2fr 1fr;
+  }
 }
 
 .heading {
@@ -57,16 +60,26 @@ section {
 
 .data-form {
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   width: 100%;
 
   & input {
-    border: 1px solid #{a.$neutral-400};
+    border: 2px solid #{a.$cyan-600};
     border-radius: 0.4rem;
-    padding: 0.75rem;
-  }
+    padding: 1rem;
+    background: #{a.$cyan-600};
 
-  & button {
+    &::placeholder {
+      color: #{a.$cyan-300};
+    }
+  }
+}
+
+.btn {
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+
+  &--calculate {
     display: block;
     width: 100%;
     text-align: center;
@@ -76,23 +89,64 @@ section {
     color: #{a.$neutral-50};
     text-transform: uppercase;
     font-weight: 300;
-    cursor: pointer;
-    transition: 200ms ease-in-out;
-
     &:hover {
       background: #{a.$emerald-700};
+    }
+  }
+
+  &--copy {
+    display: grid;
+    place-items: center;
+    padding: 0.5rem;
+    border-radius: 999rem;
+
+    &:hover {
+      background: #{a.$cyan-200};
+      color: #{a.$zinc-700};
     }
   }
 }
 
 .information {
+  display: grid;
+  gap: 2rem;
   padding: 2rem;
   background: #{a.$sky-200};
   border-radius: 0.4rem;
+  color: #{a.$zinc-700};
+
+  & h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+  }
+
+  & p {
+    line-height: 1.5;
+  }
 }
 
 .copyright {
   font-size: var(--fnt-sz--copyright);
   letter-spacing: 0.075rem;
   text-align: center;
+}
+
+.data-wrap {
+  display: grid;
+  gap: 3rem;
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #{a.$cyan-600};
+  padding: 1rem;
+  border-radius: 0.4rem;
+}
+
+.icon-clipboard {
+  width: 2.5rem;
+  aspect-ratio: 1;
 }

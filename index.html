@@ -15,22 +15,42 @@
     </header>
     <main class="main">
       <section>
-        <article>
+        <article data-data-wrap class="data-wrap">
           <form data-form action="" class="data-form">
-            <label for="min-size">Minimum Size</label>
-            <input id="min-size" type="number" data-min-size />
-            <label for="max-size">Maximum Size</label>
-            <input type="number" id="max-size" data-max-size />
-            <label for="min-viewport">Minimum Viewport Width</label>
-            <input id="min-viewport" type="number" data-min-vp-size />
-            <label for="max-viewport">Maximum Viewport Size</label>
-            <input type="number" id="max-viewport" data-max-vp-size />
-            <button type="submit" data-btn-calculate>Calculate!</button>
+            <input id="min-size" type="number" data-min-size placeholder="Minimum Size" />
+            <input type="number" id="max-size" data-max-size placeholder="Maximum Size" />
+            <input
+              id="min-viewport"
+              type="number"
+              data-min-vp-size
+              placeholder="Minimum Viewport Width"
+            />
+            <input
+              type="number"
+              id="max-viewport"
+              data-max-vp-size
+              placeholder="Maximum Viewport Size"
+            />
+            <button type="submit" data-btn-calculate class="btn btn--calculate">Calculate!</button>
           </form>
-          <div class="result">Result</div>
+          <div data-result class="result">
+            <span class="result__output"></span>
+            <button aria-label="copy result" class="btn btn--copy">
+              <svg class="icon-clipboard"><use href="./assets/sprite.svg#clipboard"></use></svg>
+            </button>
+          </div>
         </article>
         <aside class="information">
-          <p>Some text</p>
+          <h2>What is this?</h2>
+          <p>
+            CSS clamp allows you to add responsiveness to an element without the need for a media
+            query. The clamp allows your chosen element to scale with your viewport by providing
+            minimum and maximum sizes, as well as the rate at which you want the element to scale.
+          </p>
+          <p>
+            This calculator takes your min and max sizes and then calculates the optimal rate of
+            scaling.
+          </p>
         </aside>
       </section>
     </main>
