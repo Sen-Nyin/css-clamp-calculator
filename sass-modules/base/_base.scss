@@ -220,4 +220,24 @@ section {
     aspect-ratio: 1;
     stroke-width: 1.8;
   }
+  &--footer {
+    width: 3rem;
+    aspect-ratio: 1;
+    transition: 300ms ease-in-out;
+
+    &:hover {
+      scale: 1.25;
+    }
+  }
+}
+
+.footer {
+  display: grid;
+  place-items: center;
+  gap: var(--size-2);
+  &__socials {
+    display: flex;
+    gap: var(--size-2);
+    color: var(--clr-black);
+  }
 }

@@ -264,4 +264,23 @@ section {
   width: var(--size-2);
   aspect-ratio: 1;
   stroke-width: 1.8;
+}
+.icon--footer {
+  width: 3rem;
+  aspect-ratio: 1;
+  transition: 300ms ease-in-out;
+}
+.icon--footer:hover {
+  scale: 1.25;
+}
+
+.footer {
+  display: grid;
+  place-items: center;
+  gap: var(--size-2);
+}
+.footer__socials {
+  display: flex;
+  gap: var(--size-2);
+  color: var(--clr-black);
 }/*# sourceMappingURL=styles.css.map */
