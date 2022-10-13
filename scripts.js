@@ -19,7 +19,6 @@ const calcSlope = (min, max, minVP, maxVP) => {
   const sizeGap = max - min;
   const vpGap = maxVP - minVP;
   const slope = sizeGap / vpGap;
-
   return slope;
 };
 
