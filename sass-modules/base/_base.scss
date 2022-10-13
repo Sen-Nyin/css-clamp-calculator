@@ -62,9 +62,9 @@ body {
   grid-template-rows: max-content 1fr max-content;
 }
 
-header,
-footer {
-  padding-block: 4rem;
+.header,
+.footer {
+  padding-block: var(--size-4);
 }
 
 main {
@@ -97,6 +97,11 @@ section {
     letter-spacing: 0.1rem;
     text-align: center;
   }
+  &--info {
+    font-size: var(--size-2);
+    font-weight: var(--fnt-wt-l);
+    letter-spacing: 0.2rem;
+  }
 }
 
 .data-form {
@@ -115,7 +120,7 @@ section {
     }
   }
 
-  &:invalid button[data-btn-calculate] {
+  &:invalid [data-btn-calculate] {
     pointer-events: none;
     opacity: 0.3;
   }
@@ -175,12 +180,6 @@ section {
   background: var(--clr-blue-200);
   border-radius: var(--border-radius);
   color: var(--fnt-clr--dark);
-
-  &__header {
-    font-size: var(--size-2);
-    font-weight: var(--fnt-wt-l);
-    letter-spacing: 0.2rem;
-  }
 
   &__text {
     line-height: 1.5;

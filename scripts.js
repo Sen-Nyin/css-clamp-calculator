@@ -1,12 +1,10 @@
 'use: strict';
 
 const findEle = (selector) => document.querySelector(selector);
-const findEles = (selector) => document.querySelectorAll(selector);
 
 const calcVP = (value) => {
   const rem = findEle('[data-rem-value]').value || 16;
   const result = value / rem;
-  console.log(result);
   return result;
 };
 

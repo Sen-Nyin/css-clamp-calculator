@@ -122,9 +122,9 @@ body {
   grid-template-rows: max-content 1fr max-content;
 }
 
-header,
-footer {
-  padding-block: 4rem;
+.header,
+.footer {
+  padding-block: var(--size-4);
 }
 
 main {
@@ -155,6 +155,11 @@ section {
   letter-spacing: 0.1rem;
   text-align: center;
 }
+.heading--info {
+  font-size: var(--size-2);
+  font-weight: var(--fnt-wt-l);
+  letter-spacing: 0.2rem;
+}
 
 .data-form {
   display: grid;
@@ -170,7 +175,7 @@ section {
 .data-form input::placeholder {
   color: var(--fnt-clr--placeholder);
 }
-.data-form:invalid button[data-btn-calculate] {
+.data-form:invalid [data-btn-calculate] {
   pointer-events: none;
   opacity: 0.3;
 }
@@ -223,11 +228,6 @@ section {
   background: var(--clr-blue-200);
   border-radius: var(--border-radius);
   color: var(--fnt-clr--dark);
-}
-.information__header {
-  font-size: var(--size-2);
-  font-weight: var(--fnt-wt-l);
-  letter-spacing: 0.2rem;
 }
 .information__text {
   line-height: 1.5;
