@@ -79,7 +79,7 @@ meter {
   --fnt-clr--placeholder: var(--clr-blue-300);
   --fnt-clr--dark: var(--clr-black);
   --fnt-clr--light: var(--clr-white);
-  --bg-clr--body: var(--clr-blue-900);
+  --bg-clr--body: linear-gradient(var(--clr-blue-900), var(--clr-blue-300));
   --bg-clr--input: var(--clr-blue-600);
   --border-radius: calc(var(--size-1) * 0.4);
   --pad--input: var(--size-1);
@@ -100,6 +100,7 @@ meter {
   --size-3: 3rem;
   --size-4: 4rem;
   --clr-blue-900: hsl(196deg, 64%, 24%);
+  --clr-blue-700: hsl(193deg, 82%, 31%);
   --clr-blue-600: hsl(192deg, 91%, 36%);
   --clr-blue-300: hsl(187deg, 92%, 69%);
   --clr-blue-200: hsl(186deg, 94%, 82%);
@@ -135,9 +136,12 @@ main {
 
 section {
   display: grid;
-  gap: 4rem;
+  gap: var(--size-2);
   width: min(85vw, 111rem);
-  padding-inline: var(--size-1);
+  padding: var(--size-2);
+  background: var(--clr-blue-900);
+  border-radius: var(--border-radius);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 @media only screen and (min-width: 64em) {
   section {
@@ -230,6 +234,7 @@ section {
 }
 
 .copyright {
+  color: var(--clr-black);
   font-size: var(--fnt-sz--copyright);
   letter-spacing: 0.075rem;
   text-align: center;
@@ -238,6 +243,7 @@ section {
 .data-wrap {
   display: grid;
   gap: var(--gap--form);
+  height: max-content;
 }
 
 .result {

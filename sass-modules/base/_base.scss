@@ -12,7 +12,7 @@
   --fnt-clr--placeholder: var(--clr-blue-300);
   --fnt-clr--dark: var(--clr-black);
   --fnt-clr--light: var(--clr-white);
-  --bg-clr--body: var(--clr-blue-900);
+  --bg-clr--body: linear-gradient(var(--clr-blue-900), var(--clr-blue-300));
   --bg-clr--input: var(--clr-blue-600);
   --border-radius: calc(var(--size-1) * 0.4);
   --pad--input: var(--size-1);
@@ -40,6 +40,7 @@
 
   // ##### Colour
   --clr-blue-900: #{a.$cyan-900};
+  --clr-blue-700: #{a.$cyan-700};
   --clr-blue-600: #{a.$cyan-600};
   --clr-blue-300: #{a.$cyan-300};
   --clr-blue-200: #{a.$cyan-200};
@@ -75,9 +76,14 @@ main {
 
 section {
   display: grid;
-  gap: 4rem;
+  gap: var(--size-2);
   width: min(85vw, 111rem);
-  padding-inline: var(--size-1);
+  padding: var(--size-2);
+  background: var(--clr-blue-900);
+  border-radius: var(--border-radius);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
   @include a.breakpoint(lg, min) {
     grid-template-columns: 2fr 1fr;
@@ -182,6 +188,7 @@ section {
 }
 
 .copyright {
+  color: var(--clr-black);
   font-size: var(--fnt-sz--copyright);
   letter-spacing: 0.075rem;
   text-align: center;
@@ -190,6 +197,7 @@ section {
 .data-wrap {
   display: grid;
   gap: var(--gap--form);
+  height: max-content;
 }
 
 .result {
