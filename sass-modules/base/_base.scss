@@ -118,6 +118,10 @@ section {
     &::placeholder {
       color: var(--fnt-clr--placeholder);
     }
+
+    &:focus {
+      border-color: var(--clr-blue-200);
+    }
   }
 
   &:invalid [data-btn-calculate] {

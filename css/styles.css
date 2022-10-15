@@ -175,6 +175,9 @@ section {
 .data-form input::placeholder {
   color: var(--fnt-clr--placeholder);
 }
+.data-form input:focus {
+  border-color: var(--clr-blue-200);
+}
 .data-form:invalid [data-btn-calculate] {
   pointer-events: none;
   opacity: 0.3;
