@@ -3,23 +3,24 @@
 (() => {
   const findEle = (selector) => document.querySelector(selector);
 
-  const calcVP = (value) => {
-    const rem = findEle('[data-rem-value]').value || 16;
-    const result = value / rem;
+  const subtract = (num1, num2) => num1 - num2;
+  const divide = (num1, num2) => num1 / num2;
+
+  const calcVP = (pixels) => {
+    const pixelsPerRem = findEle('[data-rem-value]').value || 16;
+    const result = divide(pixels, pixelsPerRem);
     return result;
   };
 
-  const elements = {
+  const elements = Object.freeze({
     calculate: findEle('[data-btn-calculate]'),
     result: findEle('[data-result]'),
     copy: findEle('[data-copy]'),
     reset: findEle('[data-btn-reset]'),
-  };
+  });
 
-  const calcSlope = (min, max, minVP, maxVP) => {
-    const sizeGap = max - min;
-    const vpGap = maxVP - minVP;
-    const slope = sizeGap / vpGap;
+  const calcSlope = (sizeDif, vpDif) => {
+    const slope = divide(sizeDif, vpDif);
     return slope;
   };
 
@@ -28,20 +29,25 @@
     return yIntersect;
   };
 
-  const displayResult = (min, yInt, slope, max) => {
+  const renderResult = (min, yInt, slope, max) => {
     const result = `clamp(${min}rem, ${yInt}rem + ${slope * 100}vw, ${max}rem)`;
     elements.result.textContent = result;
   };
 
   const handleCalculate = (e) => {
     e.preventDefault();
-    const maximum = +findEle('[data-size-max]').value;
-    const minimum = +findEle('[data-size-min]').value;
+    const maximumSize = +findEle('[data-size-max]').value;
+    const minimumSize = +findEle('[data-size-min]').value;
     const maximumVP = calcVP(+findEle('[data-vp-max]').value);
     const minimumVP = calcVP(+findEle('[data-vp-min]').value);
-    const slope = calcSlope(minimum, maximum, minimumVP, maximumVP);
-    const yIntersect = calcYIntersect(minimumVP, slope, minimum);
-    displayResult(minimum, yIntersect, slope, maximum);
+
+    const sizeDif = subtract(maximumSize, minimumSize);
+    const vpDif = subtract(maximumVP, minimumVP);
+
+    const slope = calcSlope(sizeDif, vpDif);
+    const yIntersect = calcYIntersect(minimumVP, slope, minimumSize);
+
+    renderResult(minimumSize, yIntersect, slope, maximumSize);
   };
 
   const handleCopy = (e) => {
