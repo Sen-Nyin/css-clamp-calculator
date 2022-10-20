@@ -15,8 +15,8 @@
 
   const calcVP = (pixels) => {
     const pixelsPerRem = findEle('[data-rem-value]').value || 16;
-    const result = divide(pixels, pixelsPerRem);
-    return result;
+    const rem = divide(pixels, pixelsPerRem);
+    return rem;
   };
 
   const calcSlope = (sizeDif, vpDif) => {
