@@ -3,6 +3,13 @@
 (() => {
   const findEle = (selector) => document.querySelector(selector);
 
+  const elements = Object.freeze({
+    calculate: findEle('[data-btn-calculate]'),
+    result: findEle('[data-result]'),
+    copy: findEle('[data-copy]'),
+    reset: findEle('[data-btn-reset]'),
+  });
+
   const subtract = (num1, num2) => num1 - num2;
   const divide = (num1, num2) => num1 / num2;
 
@@ -11,13 +18,6 @@
     const result = divide(pixels, pixelsPerRem);
     return result;
   };
-
-  const elements = Object.freeze({
-    calculate: findEle('[data-btn-calculate]'),
-    result: findEle('[data-result]'),
-    copy: findEle('[data-copy]'),
-    reset: findEle('[data-btn-reset]'),
-  });
 
   const calcSlope = (sizeDif, vpDif) => {
     const slope = divide(sizeDif, vpDif);
