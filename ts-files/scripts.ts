@@ -1,4 +1,4 @@
-const findEle = (selector: string): HTMLElement => document.querySelector(selector) as HTMLElement;
+const findEle = (selector: string) => document.querySelector(selector) as HTMLElement;
 
 interface Elements {
   calculate: HTMLButtonElement;
@@ -18,7 +18,7 @@ const subtract = (num1: number, num2: number): number => num1 - num2;
 const divide = (num1: number, num2: number): number => num1 / num2;
 
 const calcVP = (pixels: number): number => {
-  const pixelsPerRemElement: HTMLInputElement = findEle('[data-rem-value]') as HTMLInputElement;
+  const pixelsPerRemElement = findEle('[data-rem-value]') as HTMLInputElement;
   const pixelsPerRem: number = +pixelsPerRemElement.value;
   const rem: number = divide(pixels, pixelsPerRem);
   return rem;
@@ -49,10 +49,10 @@ const handleCopy = (e: Event) => {
 const handleCalculate = (e: Event) => {
   e.preventDefault();
 
-  const maxSizeInput: HTMLInputElement = findEle('[data-size-max]') as HTMLInputElement;
-  const minSizeInput: HTMLInputElement = findEle('[data-size-min]') as HTMLInputElement;
-  const maxVPInput: HTMLInputElement = findEle('[data-vp-max]') as HTMLInputElement;
-  const minVPInput: HTMLInputElement = findEle('[data-vp-min]') as HTMLInputElement;
+  const maxSizeInput = findEle('[data-size-max]') as HTMLInputElement;
+  const minSizeInput = findEle('[data-size-min]') as HTMLInputElement;
+  const maxVPInput = findEle('[data-vp-max]') as HTMLInputElement;
+  const minVPInput = findEle('[data-vp-min]') as HTMLInputElement;
 
   const maximumSize: number = +maxSizeInput.value;
   const minimumSize: number = +minSizeInput.value;
@@ -70,7 +70,7 @@ const handleCalculate = (e: Event) => {
 
 const handleReset = (e: Event) => {
   e.preventDefault();
-  const form: HTMLFormElement = findEle('[data-form]') as HTMLFormElement;
+  const form = findEle('[data-form]') as HTMLFormElement;
   form.reset();
   elements.result.textContent = '';
 };
