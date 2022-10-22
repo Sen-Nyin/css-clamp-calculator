@@ -43,10 +43,12 @@ const handleCalculate = (e) => {
     const minimumSize = +minSizeInput.value;
     const maximumVP = +maxVPInput.value;
     const minimumVP = +minVPInput.value;
+    const maximumVPRem = calcVP(maximumVP);
+    const minimumVPRem = calcVP(minimumVP);
     const sizeDif = subtract(maximumSize, minimumSize);
-    const vpDif = subtract(maximumVP, minimumVP);
+    const vpDif = subtract(maximumVPRem, minimumVPRem);
     const slope = calcSlope(sizeDif, vpDif);
-    const yIntersect = calcYIntersect(minimumVP, slope, minimumSize);
+    const yIntersect = calcYIntersect(minimumVPRem, slope, minimumSize);
     renderResult(minimumSize, yIntersect, slope, maximumSize);
 };
 const handleReset = (e) => {
