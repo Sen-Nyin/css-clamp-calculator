@@ -15,29 +15,20 @@ const elements: Elements = Object.freeze({
 });
 
 const subtract = (num1: number, num2: number): number => num1 - num2;
+
 const divide = (num1: number, num2: number): number => num1 / num2;
 
 const calcVP = (pixels: number): number => {
   const pixelsPerRemElement = findEle('[data-rem-value]') as HTMLInputElement;
   const pixelsPerRem: number = +pixelsPerRemElement.value;
-  const rem: number = divide(pixels, pixelsPerRem);
-  return rem;
+  return divide(pixels, pixelsPerRem);
 };
 
-const calcSlope = (sizeDif: number, vpDif: number): number => {
-  const slope: number = divide(sizeDif, vpDif);
-  return slope;
-};
+const calcSlope = (sizeDif: number, vpDif: number): number => divide(sizeDif, vpDif);
 
-const calcYIntersect = (minVP: number, slope: number, minimum: number): number => {
-  const yIntersect = (0 - minVP) * slope + minimum;
-  return yIntersect;
-};
+const calcYIntersect = (minVP: number, slope: number, minimum: number): number =>  (0 - minVP) * slope + minimum;
 
-const renderResult = (min: number, yInt: number, slope: number, max: number): void => {
-  const result = `clamp(${min}rem, ${yInt}rem + ${slope * 100}vw, ${max}rem)`;
-  elements.result.textContent = result;
-};
+const renderResult = (min: number, yInt: number, slope: number, max: number): string => `clamp(${min}rem, ${yInt}rem + ${slope * 100}vw, ${max}rem)`;
 
 const handleCopy = (e: Event) => {
   e.preventDefault();
@@ -68,7 +59,7 @@ const handleCalculate = (e: Event) => {
   const slope: number = calcSlope(sizeDif, vpDif);
   const yIntersect: number = calcYIntersect(minimumVPRem, slope, minimumSize);
 
-  renderResult(minimumSize, yIntersect, slope, maximumSize);
+  elements.result.textContent = renderResult(minimumSize, yIntersect, slope, maximumSize);
 };
 
 const handleReset = (e: Event) => {

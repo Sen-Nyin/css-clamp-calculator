@@ -11,21 +11,11 @@ const divide = (num1, num2) => num1 / num2;
 const calcVP = (pixels) => {
     const pixelsPerRemElement = findEle('[data-rem-value]');
     const pixelsPerRem = +pixelsPerRemElement.value;
-    const rem = divide(pixels, pixelsPerRem);
-    return rem;
+    return divide(pixels, pixelsPerRem);
 };
-const calcSlope = (sizeDif, vpDif) => {
-    const slope = divide(sizeDif, vpDif);
-    return slope;
-};
-const calcYIntersect = (minVP, slope, minimum) => {
-    const yIntersect = (0 - minVP) * slope + minimum;
-    return yIntersect;
-};
-const renderResult = (min, yInt, slope, max) => {
-    const result = `clamp(${min}rem, ${yInt}rem + ${slope * 100}vw, ${max}rem)`;
-    elements.result.textContent = result;
-};
+const calcSlope = (sizeDif, vpDif) => divide(sizeDif, vpDif);
+const calcYIntersect = (minVP, slope, minimum) => (0 - minVP) * slope + minimum;
+const renderResult = (min, yInt, slope, max) => `clamp(${min}rem, ${yInt}rem + ${slope * 100}vw, ${max}rem)`;
 const handleCopy = (e) => {
     e.preventDefault();
     const copyText = elements.result.textContent;
@@ -49,7 +39,7 @@ const handleCalculate = (e) => {
     const vpDif = subtract(maximumVPRem, minimumVPRem);
     const slope = calcSlope(sizeDif, vpDif);
     const yIntersect = calcYIntersect(minimumVPRem, slope, minimumSize);
-    renderResult(minimumSize, yIntersect, slope, maximumSize);
+    elements.result.textContent = renderResult(minimumSize, yIntersect, slope, maximumSize);
 };
 const handleReset = (e) => {
     e.preventDefault();
