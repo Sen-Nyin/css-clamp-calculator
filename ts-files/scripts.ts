@@ -14,21 +14,19 @@ const elements: Elements = Object.freeze({
   reset: findEle('[data-btn-reset]') as HTMLButtonElement,
 });
 
-const subtract = (num1: number, num2: number): number => num1 - num2;
-
-const divide = (num1: number, num2: number): number => num1 / num2;
-
 const calcVP = (pixels: number): number => {
   const pixelsPerRemElement = findEle('[data-rem-value]') as HTMLInputElement;
   const pixelsPerRem: number = +pixelsPerRemElement.value;
-  return divide(pixels, pixelsPerRem);
+  return pixels / pixelsPerRem;
 };
 
-const calcSlope = (sizeDif: number, vpDif: number): number => divide(sizeDif, vpDif);
+const calcSlope = (sizeDif: number, vpDif: number): number => sizeDif / vpDif;
 
-const calcYIntersect = (minVP: number, slope: number, minimum: number): number =>  (0 - minVP) * slope + minimum;
+const calcYIntersect = (minVP: number, slope: number, minimum: number): number =>
+  (0 - minVP) * slope + minimum;
 
-const renderResult = (min: number, yInt: number, slope: number, max: number): string => `clamp(${min}rem, ${yInt}rem + ${slope * 100}vw, ${max}rem)`;
+const renderResult = (min: number, yInt: number, slope: number, max: number): string =>
+  `clamp(${min}rem, ${yInt}rem + ${slope * 100}vw, ${max}rem)`;
 
 const handleCopy = (e: Event) => {
   e.preventDefault();
@@ -53,8 +51,8 @@ const handleCalculate = (e: Event) => {
   const maximumVPRem: number = calcVP(maximumVP);
   const minimumVPRem: number = calcVP(minimumVP);
 
-  const sizeDif: number = subtract(maximumSize, minimumSize);
-  const vpDif: number = subtract(maximumVPRem, minimumVPRem);
+  const sizeDif: number = maximumSize - minimumSize;
+  const vpDif: number = maximumVPRem - minimumVPRem;
 
   const slope: number = calcSlope(sizeDif, vpDif);
   const yIntersect: number = calcYIntersect(minimumVPRem, slope, minimumSize);

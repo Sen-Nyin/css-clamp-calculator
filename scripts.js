@@ -6,14 +6,12 @@ const elements = Object.freeze({
     copy: findEle('[data-copy]'),
     reset: findEle('[data-btn-reset]'),
 });
-const subtract = (num1, num2) => num1 - num2;
-const divide = (num1, num2) => num1 / num2;
 const calcVP = (pixels) => {
     const pixelsPerRemElement = findEle('[data-rem-value]');
     const pixelsPerRem = +pixelsPerRemElement.value;
-    return divide(pixels, pixelsPerRem);
+    return pixels / pixelsPerRem;
 };
-const calcSlope = (sizeDif, vpDif) => divide(sizeDif, vpDif);
+const calcSlope = (sizeDif, vpDif) => sizeDif / vpDif;
 const calcYIntersect = (minVP, slope, minimum) => (0 - minVP) * slope + minimum;
 const renderResult = (min, yInt, slope, max) => `clamp(${min}rem, ${yInt}rem + ${slope * 100}vw, ${max}rem)`;
 const handleCopy = (e) => {
@@ -35,8 +33,8 @@ const handleCalculate = (e) => {
     const minimumVP = +minVPInput.value;
     const maximumVPRem = calcVP(maximumVP);
     const minimumVPRem = calcVP(minimumVP);
-    const sizeDif = subtract(maximumSize, minimumSize);
-    const vpDif = subtract(maximumVPRem, minimumVPRem);
+    const sizeDif = maximumSize - minimumSize;
+    const vpDif = maximumVPRem - minimumVPRem;
     const slope = calcSlope(sizeDif, vpDif);
     const yIntersect = calcYIntersect(minimumVPRem, slope, minimumSize);
     elements.result.textContent = renderResult(minimumSize, yIntersect, slope, maximumSize);
